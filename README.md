@@ -35,8 +35,8 @@ commands: dict[str, str] = {
                             "Csharp": f"dotnet run {passed_file}",
                             "Rustc": f"cd {passed_file}"
                             " && cargo run -q",
-                            "Ruby": "ruby {passed_file}",
-                            "PHP": "php {passed_file}"
+                            "Ruby": f"ruby {passed_file}",
+                            "PHP": f"php {passed_file}"
                            }
 ```
 notice that the value of extensions can be anything. Just ensure that it's the same and the key to the matching command. JSON will be added soon for better interaction.
