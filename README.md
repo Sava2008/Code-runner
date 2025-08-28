@@ -1,48 +1,38 @@
 # Code-runner
 ## How to use
-Download both the logs.txt and code_runner.py files, dump them into one directory, copy the path to the script and add a shortcut with the following command:
+Download files from the directory Code_runner_1.0.0, dump them into one directory on your computer, copy the path to the script and add a shortcut with the following command into your code editor:
 ```text
 cmd /k python "C:\path\to\code_runner.py" "$(FULL_CURRENT_PATH)"
 ```
-logs.txt will collect every log and track errors. For bug reports, feel free to send me the logs.txt file.
+Replace ```"C:\path\to\code_runner.py"``` with directory valid for your case.
+logs.txt will collect every log and track errors. For bug reports, feel free to send exception logs from the logs.txt file to me!
 Right now only 3 three programming languages are supported, which includes python, rust and C#, but more are planned to be implemented.
 ## What to do if your programming language is not on the list above?
-Open the code_runner.py file and look for the "extensions" dict and the "commands" dict:
-```python
-extentions: dict[str, str] = {".py": "Python", ".cs": "Csharp",
-                              ".rs": "Rustc"}
+Open the extension.json and file and add anything you need:
+```json
+{
+  ".py": "Python",
+  ".cs": "Csharp",
+  ".rs": "Rustc",
+  ".rb": "Ruby"
+}
 ```
-```python
-commands: dict[str, str] = {
-                            "Python": f"python {passed_file}",
-                            "Csharp": f"dotnet run {passed_file}",
-                            "Rustc": f"cd {passed_file}"
-                            " && cargo run -q",
-                           }
+Open the commands.json and add cmd commands reciprocately:
+```json
+{
+  "Python": "python ",
+  "Csharp": "dotnet run ",
+  "Rustc": "cd PATH && cargo run -q",
+  "Ruby": "ruby "
+}
 ```
-Notice that some strings ```f"cd {passed_file}" " && cargo run -q"``` are implicitly concatenated to not exceed the 79 characters in a single line limit, but using the "+" operator is completely valid
-```f"cd {passed_file}" + " && cargo run -q"```.
+Notice that some strings ```"cd PATH && cargo run -q"``` have PATH in all capitals. It's a placeholder which is replaced by file directory.
+Wherever a value doesn't have PATH, the path is appended to the end ```ruby file.rb```
+Notice that the value of extensions can be anything. Just ensure that it's the same and the key to the matching command (e.g. value "Python" in extensions.json
+matches key "Python" in commands.json
 
-Add your programming language to the dictionary and add the extension of the corresponding file:
-```python
-extentions: dict[str, str] = {".py": "Python", ".cs": "Csharp",
-                              ".rs": "Rustc", ".rb": "Ruby",
-                              ".php": "PHP"}
-```
-```python
-commands: dict[str, str] = {
-                            "Python": f"python {passed_file}",
-                            "Csharp": f"dotnet run {passed_file}",
-                            "Rustc": f"cd {passed_file}"
-                            " && cargo run -q",
-                            "Ruby": f"ruby {passed_file}",
-                            "PHP": f"php {passed_file}"
-                           }
-```
-Notice that the value of extensions can be anything. Just ensure that it's the same and the key to the matching command. JSON will be added soon for better interactions.
 ## What will be added
-1. JSON file instead of raw dictionaries
-2. More programming languages
-3. Bugfixes
+1. More programming languages
+2. Bugfixes
 ## Credits
 Sava2008
