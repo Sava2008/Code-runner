@@ -82,15 +82,13 @@ def main() -> None:
     print(f"running: \033[97m{program.passed_file}\033[0m")
     
     command: str = program.commands[program.file_type]
-    print(command)
     if program.passed_file.endswith(".rs"):
         program.passed_file = program.passed_file.removesuffix(r"\src\main.rs")
         command = command.replace("PATH", program.passed_file)
     elif program.passed_file.endswith(".py"):
         command = command.replace("PATH", program.run_file_dir)
-
     command += program.passed_file
-    print(command)
+
     print(f"using: \033[97m{program.file_type.lower().capitalize()}\033[0m")
     print("\033[95mOUTPUT:\033[0m\n")
     os.system(command)
@@ -102,4 +100,5 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         print(f"\033[31m{format_exc()}\033[0m")
+
         logging.exception(e)
