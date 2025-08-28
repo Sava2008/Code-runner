@@ -1,0 +1,20 @@
+[project]
+name = "SavaRun"
+version = "1.0.1"
+supported_langs = [
+					"Python",
+					"C#",
+					"Rust"
+				  ]
+langs_count = 3
+
+[credits]
+name = "Sava2008"
+python_version = "3.13.5"
+
+[user_data]
+python_version = "3.13.5"
+
+[other]
+last_update_date = "28.08.2025"
+dependencies = { name = "Python", minimal_version = "3.10", has_additional = false }
