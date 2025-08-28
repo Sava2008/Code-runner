@@ -1,0 +1,5 @@
+{
+    ".py": "Python",
+    ".cs": "Csharp",
+    ".rs": "Rustc"
+}

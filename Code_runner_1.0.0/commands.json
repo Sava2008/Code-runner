@@ -1,0 +1,5 @@
+{
+    "Python": "python ",
+    "Csharp": "dotnet run ",
+    "Rustc": "cd PATH && cargo run -q"
+}
