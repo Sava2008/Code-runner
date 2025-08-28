@@ -1,6 +1,6 @@
 # Code-runner
 ## How to use
-Download files from the directory Code_runner_1.0.0, dump them into one directory on your computer, copy the path to the script and add a shortcut with the following command into your code editor:
+Download files from the directory Code_runner_1.0.1, dump them into one directory on your computer, copy the path to the script and add a shortcut with the following command into your code editor:
 ```text
 cmd /k python "C:\path\to\code_runner.py" "$(FULL_CURRENT_PATH)"
 ```
