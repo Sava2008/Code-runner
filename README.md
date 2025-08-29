@@ -22,7 +22,7 @@ Open the commands.json and add cmd commands reciprocately:
 {
   "Python": "python ",
   "Csharp": "dotnet run ",
-  "Rustc": "cd PATH && cargo run -q",
+  "Rustc": "cd PATH && cargo run -q ",
   "Ruby": "ruby "
 }
 ```
